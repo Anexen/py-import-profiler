@@ -11,7 +11,7 @@ logger = logging.getLogger("import_profiler")
 class TreeFormatter(logging.Formatter):
     def formatMessage(self, record):
         level_mark = " | " * (record.depth - 1) if record.depth > 1 else ""
-        direction_mark = "> " if record.event == "enter" else "< "
+        direction_mark = " > " if record.event == "enter" else " < "
         record.module_name = level_mark + direction_mark + record.module_name
 
         return super().formatMessage(record)
@@ -54,7 +54,7 @@ raw_formatter = logging.Formatter(
     style="{",
 )
 
-tree_header = "{:<10} {:<10} {:<7} {:<6} {}\n".format(
+tree_header = "{:<10} {:<10} {:<7} {:<6}  {}\n".format(
     "start", "duration", "mem", "mem+", "module_name"
 )
 
