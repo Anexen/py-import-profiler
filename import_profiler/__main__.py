@@ -3,7 +3,7 @@ import sys
 import logging
 from optparse import OptionParser
 
-from __init__ import install_hooks
+from import_profiler import install_hooks
 
 logger = logging.getLogger("import_profiler")
 
